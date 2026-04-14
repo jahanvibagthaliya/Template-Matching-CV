@@ -24,7 +24,7 @@ top_left = max_loc
 bottom_right = (top_left[0] + w, top_left[1] + h)
 
 # STEP 4: Draw the result
-cv2.rectangle(main_image, top_left, bottom_right, (0, 255, 0), 3)
+cv2.rectangle(main_image, top_left, bottom_right, (0, 255, 0), 3) # # OpenCV uses BGR, not RGB / Green Color Box / 3 is thickness
 
 # Show the results
 cv2.imshow('Result Map (The Heatmap)', result)

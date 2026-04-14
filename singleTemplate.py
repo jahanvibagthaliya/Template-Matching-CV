@@ -17,12 +17,13 @@ w, h = template.shape[::-1]
 result = cv2.matchTemplate(img_gray,template,cv2.TM_CCOEFF_NORMED)
 
 # STEP 3: Find the "Brightest" point (The Best Match)
-threshold = 0.98
+threshold = 0.8
 loc = np.where(result >= threshold)
+print(loc)
 
 # STEP 4: Draw the result
 for pt in zip(*loc[::-1]):
-    cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
+    cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)  # # OpenCV uses BGR, not RGB / Red Color Box / 2 is thickness
 
 # Show the results
 cv2.imshow('Result Map (The Heatmap)', result)      
